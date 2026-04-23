@@ -20,5 +20,7 @@ jobs:
           url: https://af64-95-47-192-215.ngrok-free.app
           method: jwt
           role: release-reader
+          path: github
+
           secrets: |
             secret/data/release-artifacts api_key | API_KEY
