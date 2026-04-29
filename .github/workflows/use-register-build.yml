@@ -1,0 +1,15 @@
+name: Use central register-build
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  register-build:
+    if: startsWith(github.head_ref, 'release/')
+    uses: IlyaGulya/vault-oidc-central-202604231804/.github/workflows/register-build.yml@fdb89d425420e97cacfde67362a6bc66c4e29461
+    permissions:
+      contents: read
+      id-token: write
+    with:
+      caller_note: "from-${{ github.repository }}"

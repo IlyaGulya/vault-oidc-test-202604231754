@@ -1,0 +1,23 @@
+name: Direct vault-action (must be denied)
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  attempt:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: hashicorp/vault-action@v3
+        with:
+          url: https://af64-95-47-192-215.ngrok-free.app
+          method: jwt
+          path: ci
+          role: ci-mobile-register-build
+          secrets: |
+            ci/data/mobile/release/dev-platform-xauth x_auth | DEV_PLATFORM_XAUTH
