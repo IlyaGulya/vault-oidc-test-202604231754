@@ -7,7 +7,7 @@ on:
 jobs:
   register-build:
     if: startsWith(github.head_ref, 'release/')
-    uses: IlyaGulya/vault-oidc-central-202604231804/.github/workflows/register-build.yml@868f65f1fe727794d6cecc2bcf46f693eb9b3546
+    uses: IlyaGulya/vault-oidc-central-202604231804/.github/workflows/register-build.yml@main
     permissions:
       contents: read
       id-token: write
